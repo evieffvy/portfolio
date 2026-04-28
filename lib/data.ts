@@ -11,7 +11,7 @@ export const personal = {
   ],
   email: "tarzkkjk@gmail.com",
   github: "https://github.com/evieffvy",
-  linkedin: "https://www.linkedin.com/in/kansinee-khuttiya-1402273a2",
+  linkedin: "https://www.linkedin.com/in/evieffvy",
   linktree: "https://linktr.ee/evieffvy",
   languages: [
     { name: "Thai", level: "Native" },
