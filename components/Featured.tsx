@@ -2,17 +2,31 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { featured } from "@/lib/data";
+import type { Project } from "@/lib/data";
 import { SectionTitle } from "./SectionTitle";
 
-export function Featured() {
+type GalleryItem = { src: string; alt: string };
+
+export function Featured({
+  project,
+  eyebrow,
+  sectionId,
+  coverAlt,
+  gallery,
+}: {
+  project: Project;
+  eyebrow: string;
+  sectionId: string;
+  coverAlt?: string;
+  gallery?: GalleryItem[];
+}) {
   return (
-    <section id="nyxus" className="px-6 py-24 sm:py-32">
+    <section id={sectionId} className="px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionTitle
-          eyebrow="02 — Featured"
-          title={`${featured.title} — ${featured.blurb}`}
-          description={featured.description}
+          eyebrow={eyebrow}
+          title={`${project.title} — ${project.blurb}`}
+          description={project.description}
         />
 
         <motion.div
@@ -22,11 +36,11 @@ export function Featured() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          {featured.cover ? (
+          {project.cover ? (
             <div className="relative aspect-[16/9] w-full overflow-hidden border-b" style={{ borderColor: "var(--border-soft)" }}>
               <Image
-                src={featured.cover}
-                alt={`${featured.title} screenshot — chat UI with RAG citations and PII redaction`}
+                src={project.cover}
+                alt={coverAlt ?? `${project.title} screenshot`}
                 fill
                 priority
                 sizes="(max-width: 1280px) 100vw, 1152px"
@@ -44,7 +58,7 @@ export function Featured() {
                 What it does
               </h3>
               <ul className="space-y-3 text-sm leading-relaxed" style={{ color: "var(--text-soft)" }}>
-                {featured.highlights?.map((h, i) => (
+                {project.highlights?.map((h, i) => (
                   <li key={i} className="flex gap-3">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-fuchsia-400 to-purple-400" />
                     <span>{h}</span>
@@ -62,7 +76,7 @@ export function Featured() {
                   Tech
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {featured.tech.map((t) => (
+                  {project.tech.map((t) => (
                     <span
                       key={t}
                       className="glass-soft rounded-full px-3 py-1 text-xs"
@@ -75,9 +89,9 @@ export function Featured() {
               </div>
 
               <div className="flex flex-col gap-3 pt-2">
-                {featured.demo ? (
+                {project.demo ? (
                   <a
-                    href={featured.demo}
+                    href={project.demo}
                     target="_blank"
                     rel="noreferrer"
                     className="accent-bg rounded-full px-5 py-2.5 text-center text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/20 transition-transform hover:scale-[1.03]"
@@ -86,7 +100,7 @@ export function Featured() {
                   </a>
                 ) : null}
                 <a
-                  href={featured.repo}
+                  href={project.repo}
                   target="_blank"
                   rel="noreferrer"
                   className="glass-soft rounded-full px-5 py-2.5 text-center text-sm font-medium transition-transform hover:scale-[1.03]"
@@ -99,32 +113,30 @@ export function Featured() {
           </div>
         </motion.div>
 
-        <motion.div
-          className="mt-6 grid gap-4 sm:grid-cols-3"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
-        >
-          {[
-            { src: "/projects/security-scan.png", alt: "OWASP code scanner" },
-            { src: "/projects/audit.png", alt: "Audit log table" },
-            { src: "/projects/login.png", alt: "Login screen" },
-          ].map((s) => (
-            <div
-              key={s.src}
-              className="glass relative aspect-video overflow-hidden rounded-xl"
-            >
-              <Image
-                src={s.src}
-                alt={s.alt}
-                fill
-                sizes="(max-width: 768px) 100vw, 384px"
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </motion.div>
+        {gallery && gallery.length > 0 ? (
+          <motion.div
+            className="mt-6 grid gap-4 sm:grid-cols-3"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+          >
+            {gallery.map((s) => (
+              <div
+                key={s.src}
+                className="glass relative aspect-video overflow-hidden rounded-xl"
+              >
+                <Image
+                  src={s.src}
+                  alt={s.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 384px"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </motion.div>
+        ) : null}
       </div>
     </section>
   );
