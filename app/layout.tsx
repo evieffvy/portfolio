@@ -9,6 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://evieffvy.vercel.app"),
   title: "Evie · Computer Engineering @ Assumption University",
   description:
     "Computer Engineering student building AI systems with security at the core. Creator of NYXUS — a full-stack RAG chatbot with prompt-injection defense, PII redaction, and OWASP code scanning.",
@@ -16,7 +17,11 @@ export const metadata: Metadata = {
     title: "Evie — AI Engineering & Cybersecurity",
     description:
       "CompEng student @ ABAC. Builder of full-stack AI systems with security-first design.",
+    url: "https://evieffvy.vercel.app",
     type: "website",
+  },
+  alternates: {
+    canonical: "https://evieffvy.vercel.app",
   },
 };
 
