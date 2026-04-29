@@ -9,7 +9,7 @@ export const personal = {
     "My flagship projects bridge AI and security: NYXUS, a full-stack RAG chatbot with production-grade defenses (prompt-injection scoring, PII redaction, OWASP Top 10 code scanner, audit log), and HORUS, an AI-powered threat intelligence dashboard that pulls live CVE data from NVD and summarizes it in plain Thai/English with Gemini.",
     "Beyond those, I work on classical ML, low-level systems with C/C++ and SYCL, and modern web development with Next.js. I'm currently looking for internships and junior roles in AI Engineering, Security Engineering, or full-stack development.",
   ],
-  email: "tarzkkjk@gmail.com",
+  email: "kansineek.dev@gmail.com",
   github: "https://github.com/evieffvy",
   linkedin: "https://www.linkedin.com/in/evieffvy",
   linktree: "https://linktr.ee/evieffvy",
