@@ -60,7 +60,7 @@ export function About() {
                 <li>📚 Final year Computer Engineering @ ABAC</li>
                 <li>🛡 Building NYXUS — security-first RAG chatbot</li>
                 <li>🌏 Based in Bangkok, Thailand</li>
-                <li>🎯 Open to AI / Security / Full-stack roles</li>
+                <li>🎯 Open to AI / Security roles</li>
               </ul>
             </div>
           </motion.aside>
