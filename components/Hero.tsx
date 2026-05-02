@@ -47,7 +47,7 @@ export function Hero() {
           </p>
 
           <p className="mt-4 text-base" style={{ color: "var(--text-muted)" }}>
-            AI engineering · Cybersecurity · Full-stack development
+            AI engineering · Cybersecurity 
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
