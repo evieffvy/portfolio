@@ -85,10 +85,7 @@ export function Contact() {
         </motion.div>
 
         <p className="mt-10 text-center text-xs" style={{ color: "var(--text-faint)" }}>
-          {education.degree} · {education.school} · {education.location}
-        </p>
-        <p className="mt-2 text-center text-xs" style={{ color: "var(--text-faint)" }}>
-          Built with Next.js, Tailwind 4, and Framer Motion.
+          {education.degree} · {education.school} · {education.location} · {education.graduation}
         </p>
       </div>
     </section>

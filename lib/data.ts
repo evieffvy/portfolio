@@ -190,4 +190,5 @@ export const education = {
   degree: "Bachelor of Engineering · Computer Engineering",
   period: "3rd–4th year",
   location: "Bangkok, Thailand",
+  graduation: "Expected Graduation: October 2027",
 };
