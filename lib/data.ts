@@ -99,65 +99,28 @@ export const projects: Project[] = [
   {
     slug: "sycl",
     title: "SYCL Parallel Computing",
-    blurb: "GPU-accelerated workloads with Intel oneAPI",
+    blurb: "60× GPU speedup on NIST SP 800-22 randomness tests — single codebase, any hardware",
     description:
-      "Parallel computing experiments using SYCL/oneAPI to offload compute kernels onto Intel GPUs. Explores work-group tuning, USM, and memory model trade-offs.",
-    tech: ["C++", "SYCL", "Intel oneAPI", "CMake", "Linux"],
+      "Reimplements the NIST SP 800-22 Monobit and Block Frequency tests as SYCL parallel kernels. A single portable codebase runs on Intel CPU, Intel GPU, NVIDIA GPU, and AMD GPU via SYCL/DPC++ — no CUDA lock-in. Achieves 60× peak GPU speedup over the NIST STS serial baseline at 1 GB input with 32 Gbit/s sustained throughput; P-values match the reference within 1×10⁻⁵.",
+    highlights: [
+      "60× peak GPU speedup over NIST STS 2.1.2 serial reference at 1 GB input; 32 Gbit/s sustained GPU throughput",
+      "Monobit kernel: two-phase parallel reduction with work-group shared memory and sycl::atomic_ref for global accumulation",
+      "Block Frequency kernel: two-pass data-parallel design with sycl::reduction accumulating chi-squared in double precision",
+      "Cross-architecture portability: Intel CPU, Intel GPU, NVIDIA GPU, and AMD GPU from one SYCL/DPC++ source",
+      "P-values verified against NIST STS 2.1.2 within floating-point tolerance (<1×10⁻⁵) across all test vectors",
+    ],
+    tech: ["C++17", "SYCL / DPC++", "Intel oneAPI", "CMake", "Linux"],
     repo: "https://github.com/evieffvy/sycl_project",
+    demo: "https://evieffvy.github.io/sycl_project",
   },
   {
-    slug: "stanford-dogs",
-    title: "Stanford Dogs CNN",
-    blurb: "Dog breed classification via CNN transfer learning",
+    slug: "ml-coursework",
+    title: "ML Coursework",
+    blurb: "CNN, PCA, clustering, NLP, and rule mining — classical algorithms from scratch",
     description:
-      "Fine-tunes a pre-trained CNN on the Stanford Dogs dataset for 120-class breed classification. Covers data augmentation, transfer learning, and evaluation.",
-    tech: ["Python", "TensorFlow/Keras", "Transfer Learning", "CNN"],
-    repo: "https://github.com/evieffvy/stanford-dogs-cnn",
-  },
-  {
-    slug: "pca-face",
-    title: "PCA Face Recognition",
-    blurb: "Eigenfaces from scratch",
-    description:
-      "Implements face recognition using Principal Component Analysis (eigenfaces). Computes the eigen-decomposition manually and projects faces into a low-dimensional subspace for recognition.",
-    tech: ["Python", "NumPy", "OpenCV", "PCA"],
-    repo: "https://github.com/evieffvy/pca-face-recognition",
-  },
-  {
-    slug: "imdb-sentiment",
-    title: "IMDB Sentiment",
-    blurb: "Logistic Regression vs Naive Bayes on movie reviews",
-    description:
-      "Binary sentiment classification on the IMDB reviews dataset. Compares classical ML baselines (Logistic Regression, Naive Bayes) with TF-IDF features.",
-    tech: ["Python", "scikit-learn", "NLP", "TF-IDF"],
-    repo: "https://github.com/evieffvy/imdb-sentiment",
-  },
-  {
-    slug: "market-apriori",
-    title: "Market Basket Apriori",
-    blurb: "Association rule mining for retail baskets",
-    description:
-      "Implements the Apriori algorithm for frequent itemset mining and association rule generation on a market basket dataset. Tunes support and confidence to surface meaningful rules.",
-    tech: ["Python", "Apriori", "Pandas"],
-    repo: "https://github.com/evieffvy/market-apriori",
-  },
-  {
-    slug: "iris-kmeans",
-    title: "Iris K-Means",
-    blurb: "Unsupervised clustering with elbow + silhouette",
-    description:
-      "K-Means clustering on the Iris dataset, including elbow method and silhouette analysis to validate the choice of k.",
-    tech: ["Python", "scikit-learn", "K-Means"],
-    repo: "https://github.com/evieffvy/iris-kmeans",
-  },
-  {
-    slug: "titanic-id3",
-    title: "Titanic ID3",
-    blurb: "Decision tree on the Titanic survival dataset",
-    description:
-      "Decision tree classifier (ID3) implementation predicting Titanic passenger survival, with information-gain splits and entropy calculations.",
-    tech: ["Python", "ID3", "Decision Tree"],
-    repo: "https://github.com/evieffvy/titanic-id3",
+      "Six implementations: 120-class dog breed classification via CNN transfer learning, eigenface recognition with manual PCA (NumPy/OpenCV), binary sentiment analysis (Logistic Regression / Naive Bayes, TF-IDF), Apriori market basket mining, K-Means clustering with elbow + silhouette validation, and ID3 decision tree on Titanic survival.",
+    tech: ["Python", "scikit-learn", "TensorFlow/Keras", "NumPy", "OpenCV"],
+    repo: "https://github.com/evieffvy",
   },
 ];
 

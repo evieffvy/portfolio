@@ -11,14 +11,14 @@ export function Projects() {
         <SectionTitle
           eyebrow="03 — Projects"
           title="Other things I've built"
-          description="Mini projects across systems programming, classical ML, and unsupervised learning. Code on GitHub."
+          description="GPU parallel computing, and classical ML algorithms from scratch. Detailed write-ups and code on GitHub."
         />
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, i) => (
             <motion.a
               key={p.slug}
-              href={p.repo}
+              href={p.demo ?? p.repo}
               target="_blank"
               rel="noreferrer"
               className="glass glass-hover group flex flex-col gap-4 rounded-2xl p-6"
