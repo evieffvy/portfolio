@@ -1,9 +1,28 @@
 "use client";
 
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { personal } from "@/lib/data";
 
+const quickLook = [
+  { key: "N", label: "NYXUS", href: "#nyxus" },
+  { key: "H", label: "HORUS", href: "#horus" },
+  { key: "S", label: "SYCL", href: "#projects" },
+];
+
 export function Hero() {
+  useEffect(() => {
+    const map: Record<string, string> = { n: "#nyxus", h: "#horus", s: "#projects" };
+    const handler = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      const href = map[e.key.toLowerCase()];
+      if (href) document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
+
   return (
     <section
       id="top"
@@ -74,6 +93,44 @@ export function Hero() {
               Contact
             </a>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
+            className="mt-5 flex flex-wrap items-center gap-2"
+          >
+            <span
+              className="mr-1 font-mono text-[11px] uppercase tracking-widest"
+              style={{ color: "var(--text-faint)" }}
+            >
+              ⌘ quick look
+            </span>
+            {quickLook.map(({ key, label, href }) => (
+              <a
+                key={key}
+                href={href}
+                className="group flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition-all hover:-translate-y-0.5 hover:border-fuchsia-500/40"
+                style={{
+                  borderColor: "var(--border-soft)",
+                  background: "rgba(255,255,255,0.03)",
+                  color: "var(--text-soft)",
+                  boxShadow: "0 2px 0 var(--border-soft)",
+                }}
+              >
+                <kbd
+                  className="rounded px-1 font-mono text-[10px] leading-5 transition-colors group-hover:bg-fuchsia-500/10 group-hover:text-fuchsia-400"
+                  style={{
+                    background: "var(--border-soft)",
+                    color: "var(--text-faint)",
+                  }}
+                >
+                  {key}
+                </kbd>
+                {label}
+              </a>
+            ))}
+          </motion.div>
         </motion.div>
 
         <motion.div
