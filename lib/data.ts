@@ -125,9 +125,9 @@ export const projects: Project[] = [
   {
     slug: "vaultify",
     title: "Vaultify",
-    blurb: "Institutional-grade crypto trading landing page with live chart simulation",
+    blurb: "Fintech crypto landing page — frontend only",
     description:
-      "A high-fidelity fintech landing page for a fictional crypto custody platform. Features real-time animated price charts, live market tickers, an orbiting wallet-integration diagram, and glassmorphism UI — built in pure HTML, CSS, and vanilla JS.",
+      "A crypto custody platform landing page with animated price charts, live market tickers, and glassmorphism UI.",
     tech: ["HTML5", "CSS", "JavaScript"],
     repo: "https://github.com/evieffvy/jjh",
     demo: "https://evieffvy.github.io/jjh",
