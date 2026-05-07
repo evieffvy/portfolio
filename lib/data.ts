@@ -122,6 +122,16 @@ export const projects: Project[] = [
     tech: ["Python", "scikit-learn", "TensorFlow/Keras", "NumPy", "OpenCV"],
     repo: "https://github.com/evieffvy",
   },
+  {
+    slug: "vaultify",
+    title: "Vaultify",
+    blurb: "Institutional-grade crypto trading landing page with live chart simulation",
+    description:
+      "A high-fidelity fintech landing page for a fictional crypto custody platform. Features real-time animated price charts, live market tickers, an orbiting wallet-integration diagram, and glassmorphism UI — built in pure HTML, CSS, and vanilla JS.",
+    tech: ["HTML5", "CSS", "JavaScript"],
+    repo: "https://github.com/evieffvy/jjh",
+    demo: "https://evieffvy.github.io/jjh",
+  },
 ];
 
 export const skills = [
