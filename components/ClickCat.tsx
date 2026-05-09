@@ -44,7 +44,6 @@ export function ClickCat() {
               style={{
                 filter:
                   "brightness(0) invert(1) drop-shadow(0 0 6px #fff) drop-shadow(0 0 12px rgba(216,180,254,1)) drop-shadow(0 0 30px rgba(168,85,247,0.9)) drop-shadow(0 0 50px rgba(168,85,247,0.5))",
-                WebkitUserDrag: "none",
               }}
             />
           </motion.div>
