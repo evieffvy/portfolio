@@ -29,18 +29,21 @@ export function ClickCat() {
           <motion.div
             key={cat.id}
             className="absolute"
-            style={{ left: cat.x - 40, top: cat.y - 40 }}
-            initial={{ opacity: 1, scale: 0.6, y: 0 }}
-            animate={{ opacity: 0, scale: 1, y: -50 }}
-            transition={{ duration: 0.85, ease: "easeOut" }}
+            style={{ left: cat.x - 56, top: cat.y - 56 }}
+            initial={{ opacity: 1, scale: 0.7, y: 0 }}
+            animate={{ opacity: [1, 1, 0], scale: [0.7, 1.3, 1.4], y: [0, -40, -70] }}
+            transition={{ duration: 1, ease: "easeOut", times: [0, 0.55, 1] }}
           >
             <Image
               src="/click-cat.png"
               alt=""
-              width={80}
-              height={80}
+              width={112}
+              height={112}
               className="object-contain"
-              style={{ filter: "brightness(0) drop-shadow(0 0 6px rgba(168,85,247,0.6))" }}
+              style={{
+                filter:
+                  "brightness(0) drop-shadow(0 0 8px rgba(168,85,247,1)) drop-shadow(0 0 20px rgba(168,85,247,0.7))",
+              }}
             />
           </motion.div>
         ))}
