@@ -40,6 +40,7 @@ export function ClickCat() {
               width={80}
               height={80}
               className="object-contain"
+              style={{ filter: "brightness(0) drop-shadow(0 0 6px rgba(168,85,247,0.6))" }}
             />
           </motion.div>
         ))}
