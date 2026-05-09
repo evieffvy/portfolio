@@ -55,9 +55,10 @@ export function ChatWidget() {
         body: JSON.stringify({ messages: next }),
       });
       const data = await res.json();
-      setMessages([...next, { role: "assistant", content: data.content ?? "Something went wrong. Try again?" }]);
-    } catch {
-      setMessages([...next, { role: "assistant", content: "Couldn't reach the server. Try again?" }]);
+      if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
+      setMessages([...next, { role: "assistant", content: data.content }]);
+    } catch (err) {
+      setMessages([...next, { role: "assistant", content: `Error: ${err instanceof Error ? err.message : "Try again?"}` }]);
     } finally {
       setLoading(false);
     }
@@ -112,7 +113,7 @@ export function ChatWidget() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="glass fixed bottom-24 right-6 z-50 flex w-[340px] flex-col overflow-hidden rounded-2xl"
+            className="glass fixed bottom-24 right-6 z-50 flex w-85 flex-col overflow-hidden rounded-2xl"
             style={{ height: 440, boxShadow: "var(--shadow-glow)" }}
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}

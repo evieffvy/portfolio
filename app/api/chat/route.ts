@@ -17,25 +17,33 @@ Answer questions about Evie, her projects, skills, background, and experience. B
 type Message = { role: "user" | "assistant"; content: string };
 
 export async function POST(req: NextRequest) {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) return Response.json({ error: "API key not configured" }, { status: 500 });
+  try {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) return Response.json({ error: "API key not configured" }, { status: 500 });
 
-  const { messages }: { messages: Message[] } = await req.json();
-  if (!messages?.length) return Response.json({ error: "No messages" }, { status: 400 });
+    const { messages }: { messages: Message[] } = await req.json();
+    if (!messages?.length) return Response.json({ error: "No messages" }, { status: 400 });
 
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({
-    model: "gemini-1.5-flash",
-    systemInstruction: SYSTEM,
-  });
+    const genAI = new GoogleGenerativeAI(apiKey);
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+      systemInstruction: SYSTEM,
+    });
 
-  const history = messages.slice(0, -1).map((m) => ({
-    role: m.role === "user" ? "user" : "model",
-    parts: [{ text: m.content }],
-  }));
+    // Gemini requires history to start with "user" — skip any leading assistant messages
+    const prior = messages.slice(0, -1);
+    const firstUserIdx = prior.findIndex((m) => m.role === "user");
+    const history = (firstUserIdx === -1 ? [] : prior.slice(firstUserIdx)).map((m) => ({
+      role: m.role === "user" ? "user" : "model",
+      parts: [{ text: m.content }],
+    }));
 
-  const chat = model.startChat({ history });
-  const result = await chat.sendMessage(messages.at(-1)!.content);
+    const chat = model.startChat({ history });
+    const result = await chat.sendMessage(messages.at(-1)!.content);
 
-  return Response.json({ content: result.response.text() });
+    return Response.json({ content: result.response.text() });
+  } catch (err) {
+    console.error("[chat]", err);
+    return Response.json({ error: String(err) }, { status: 500 });
+  }
 }
