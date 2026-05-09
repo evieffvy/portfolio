@@ -1,41 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-/* Blob cat matching the reference — round loaf body, huge yellow eyes, curled tail */
-function BlobCat() {
-  return (
-    <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl">
-      {/* Tail */}
-      <path d="M155 108 Q182 82 172 108 Q164 126 152 118" fill="#111118" />
-      {/* Body — large horizontal loaf */}
-      <ellipse cx="92" cy="100" rx="72" ry="48" fill="#111118" />
-      {/* Head — round, blends into body */}
-      <circle cx="78" cy="66" r="48" fill="#111118" />
-      {/* Left ear */}
-      <polygon points="44,34 33,6 62,30" fill="#111118" />
-      {/* Right ear */}
-      <polygon points="96,28 112,4 118,26" fill="#111118" />
-      {/* Raised left paw */}
-      <ellipse cx="34" cy="108" rx="20" ry="13" fill="#111118" transform="rotate(-25 34 108)" />
-      {/* Left eye — big yellow ring */}
-      <circle cx="62" cy="65" r="17" fill="#F5C100" />
-      <circle cx="62" cy="67" r="10" fill="#111118" />
-      <circle cx="57" cy="61" r="3" fill="white" opacity="0.9" />
-      {/* Right eye — slightly bigger (matches reference asymmetry) */}
-      <circle cx="96" cy="61" r="21" fill="#F5C100" />
-      <circle cx="96" cy="63" r="13" fill="#111118" />
-      <circle cx="90" cy="56" r="4" fill="white" opacity="0.9" />
-      {/* Whiskers left */}
-      <line x1="4"  y1="84" x2="38" y2="84" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.8" />
-      <line x1="4"  y1="91" x2="38" y2="89" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.8" />
-      {/* Whiskers right */}
-      <line x1="118" y1="84" x2="158" y2="80" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.8" />
-      <line x1="118" y1="91" x2="158" y2="93" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.8" />
-    </svg>
-  );
-}
 
 /* Paw-print trigger — bottom-left, low opacity as easter egg hint */
 function PawTrigger({ onClick }: { onClick: () => void }) {
@@ -96,11 +63,16 @@ export function BlackCat() {
             >
               {/* Cat illustration */}
               <motion.div
-                className="w-44 h-36"
+                className="relative w-44 h-44"
                 animate={petted ? { rotate: [-4, 4, -3, 3, 0], y: [0, -10, 0] } : {}}
                 transition={{ duration: 0.55 }}
               >
-                <BlobCat />
+                <Image
+                  src="/cat.jpg"
+                  alt="secret black cat"
+                  fill
+                  className="object-contain drop-shadow-xl"
+                />
               </motion.div>
 
               {/* Label */}
