@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import Groq from "groq-sdk";
 import { NextRequest } from "next/server";
 
 const SYSTEM = `You are Evie's personal AI assistant on her portfolio site. Evie is Kansinee Khuttiya — a Computer Engineering student at Assumption University (ABAC) in Bangkok, Thailand, specialising in AI engineering and cybersecurity. Expected to graduate October 2027.
@@ -18,30 +18,26 @@ type Message = { role: "user" | "assistant"; content: string };
 
 export async function POST(req: NextRequest) {
   try {
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey = process.env.GROQ_API_KEY;
     if (!apiKey) return Response.json({ error: "API key not configured" }, { status: 500 });
 
     const { messages }: { messages: Message[] } = await req.json();
     if (!messages?.length) return Response.json({ error: "No messages" }, { status: 400 });
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: "gemini-2.0-flash-lite",
-      systemInstruction: SYSTEM,
-    });
+    const groq = new Groq({ apiKey });
 
-    // Gemini requires history to start with "user" — skip any leading assistant messages
-    const prior = messages.slice(0, -1);
-    const firstUserIdx = prior.findIndex((m) => m.role === "user");
-    const history = (firstUserIdx === -1 ? [] : prior.slice(firstUserIdx)).map((m) => ({
-      role: m.role === "user" ? "user" : "model",
-      parts: [{ text: m.content }],
+    const history = messages.map((m) => ({
+      role: m.role as "user" | "assistant",
+      content: m.content,
     }));
 
-    const chat = model.startChat({ history });
-    const result = await chat.sendMessage(messages.at(-1)!.content);
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.1-8b-instant",
+      messages: [{ role: "system", content: SYSTEM }, ...history],
+      max_tokens: 512,
+    });
 
-    return Response.json({ content: result.response.text() });
+    return Response.json({ content: completion.choices[0].message.content });
   } catch (err) {
     console.error("[chat]", err);
     return Response.json({ error: String(err) }, { status: 500 });
