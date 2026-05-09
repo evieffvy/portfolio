@@ -29,7 +29,7 @@ export function ClickCat() {
           <motion.div
             key={cat.id}
             className="absolute"
-            style={{ left: cat.x - 45, top: cat.y - 45 }}
+            style={{ left: cat.x - 45, top: cat.y - 30 }}
             initial={{ opacity: 1, scale: 0.8, y: 0 }}
             animate={{ opacity: [1, 1, 0], scale: [0.8, 1.3, 1.4], y: [0, -40, -70] }}
             transition={{ duration: 1.1, ease: "easeOut", times: [0, 0.55, 1] }}
