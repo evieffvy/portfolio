@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ChatWidget } from "@/components/ChatWidget";
 import { BlackCat } from "@/components/BlackCat";
+import { ClickCat } from "@/components/ClickCat";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -54,6 +55,7 @@ export default function RootLayout({
           {children}
           <ChatWidget />
           <BlackCat />
+          <ClickCat />
         </ThemeProvider>
       </body>
     </html>
