@@ -29,7 +29,7 @@ export function Projects() {
             >
               <div className="flex items-start justify-between gap-3">
                 <h3
-                  className="font-semibold transition-colors group-hover:text-[var(--accent-strong)]"
+                  className="font-semibold transition-colors group-hover:text-(--accent-strong)"
                   style={{ color: "var(--text)" }}
                 >
                   {p.title}

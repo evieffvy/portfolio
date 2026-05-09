@@ -23,7 +23,7 @@ export function ClickCat() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[999]">
+    <div className="pointer-events-none fixed inset-0 z-999">
       <AnimatePresence>
         {cats.map((cat) => (
           <motion.div
