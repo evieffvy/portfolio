@@ -58,7 +58,11 @@ export function ChatWidget() {
       if (!res.ok) throw new Error(data.error ?? `HTTP ${res.status}`);
       setMessages([...next, { role: "assistant", content: data.content }]);
     } catch (err) {
-      setMessages([...next, { role: "assistant", content: `Error: ${err instanceof Error ? err.message : "Try again?"}` }]);
+      const msg = err instanceof Error ? err.message : "";
+      const friendly = msg.includes("429")
+        ? "I'm a bit overwhelmed right now — please try again in a moment! 🐾"
+        : "Couldn't reach the server. Try again?";
+      setMessages([...next, { role: "assistant", content: friendly }]);
     } finally {
       setLoading(false);
     }
