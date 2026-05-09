@@ -132,6 +132,16 @@ export const projects: Project[] = [
     repo: "https://github.com/evieffvy/jjh",
     demo: "https://evieffvy.github.io/jjh",
   },
+  {
+    slug: "forge",
+    title: "Forge",
+    blurb: "Developer infrastructure landing page — design system in pure HTML/CSS",
+    description:
+      "A landing page for a developer infrastructure platform. Built with a full CSS design system — custom properties, responsive grid, accessibility (focus rings, reduced-motion), and a multi-column footer — all in plain HTML/CSS with no framework.",
+    tech: ["HTML5", "CSS", "JavaScript"],
+    repo: "https://github.com/evieffvy/rerd",
+    demo: "https://rerd-xi.vercel.app",
+  },
 ];
 
 export const skills = [
