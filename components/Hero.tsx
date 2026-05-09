@@ -86,6 +86,15 @@ export function Hero() {
               GitHub →
             </a>
             <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="px-2 py-2.5 text-sm font-medium transition-colors hover:opacity-80"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Resume ↗
+            </a>
+            <a
               href="#contact"
               className="px-2 py-2.5 text-sm font-medium transition-colors hover:opacity-80"
               style={{ color: "var(--text-muted)" }}

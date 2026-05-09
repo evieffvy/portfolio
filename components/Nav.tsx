@@ -68,6 +68,16 @@ export function Nav() {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="relative py-1 transition-colors hover:text-foreground"
+            >
+              Resume ↗
+            </a>
+          </li>
         </ul>
 
         <div className="flex items-center gap-3">
@@ -131,6 +141,17 @@ export function Nav() {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center justify-between py-3 transition-colors hover:text-foreground"
+              onClick={() => setMobileOpen(false)}
+            >
+              Resume ↗
+            </a>
+          </li>
           <li className="border-t pt-3 pb-1" style={{ borderColor: "var(--border-soft)" }}>
             <a
               href="#contact"
