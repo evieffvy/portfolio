@@ -68,10 +68,10 @@ export function BlackCat() {
                 transition={{ duration: 0.55 }}
               >
                 <Image
-                  src="/cat.jpg"
+                  src="/cat.png"
                   alt="secret black cat"
                   fill
-                  className="object-contain mix-blend-multiply"
+                  className="object-contain"
                 />
               </motion.div>
 
