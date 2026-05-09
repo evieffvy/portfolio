@@ -71,7 +71,7 @@ export function BlackCat() {
                   src="/cat.jpg"
                   alt="secret black cat"
                   fill
-                  className="object-contain drop-shadow-xl"
+                  className="object-contain mix-blend-multiply"
                 />
               </motion.div>
 
