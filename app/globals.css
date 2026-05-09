@@ -170,6 +170,21 @@ body::after {
   transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;
 }
 
+/* ─── Click cat — suppress all browser image highlight/drag artifacts ── */
+.click-cat-img {
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none !important;
+}
+.click-cat-img:focus,
+.click-cat-img:active {
+  outline: none;
+}
+.click-cat-img::selection {
+  background: transparent;
+}
+
 /* ─── Reduced motion ─────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

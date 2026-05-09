@@ -40,7 +40,7 @@ export function ClickCat() {
               width={90}
               height={90}
               draggable={false}
-              className="select-none object-contain"
+              className="click-cat-img object-contain"
               style={{
                 filter:
                   "brightness(0) invert(1) drop-shadow(0 0 6px #fff) drop-shadow(0 0 12px rgba(216,180,254,1)) drop-shadow(0 0 30px rgba(168,85,247,0.9)) drop-shadow(0 0 50px rgba(168,85,247,0.5))",
