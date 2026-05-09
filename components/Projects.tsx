@@ -9,9 +9,9 @@ export function Projects() {
     <section id="projects" className="px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionTitle
-          eyebrow="03 — Projects"
+          eyebrow="04 — Projects"
           title="Other things I've built"
-          description="GPU parallel computing, and classical ML algorithms from scratch. Detailed write-ups and code on GitHub."
+          description="GPU parallel computing, classical ML from scratch, and frontend builds. Detailed write-ups and code on GitHub."
         />
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

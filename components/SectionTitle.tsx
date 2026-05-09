@@ -5,10 +5,11 @@ import { motion } from "framer-motion";
 type Props = {
   eyebrow?: string;
   title: string;
+  subtitle?: string;
   description?: string;
 };
 
-export function SectionTitle({ eyebrow, title, description }: Props) {
+export function SectionTitle({ eyebrow, title, subtitle, description }: Props) {
   return (
     <motion.div
       className="mb-12 max-w-2xl"
@@ -31,6 +32,14 @@ export function SectionTitle({ eyebrow, title, description }: Props) {
       >
         {title}
       </h2>
+      {subtitle ? (
+        <p
+          className="mt-2 text-lg font-medium"
+          style={{ color: "var(--text-muted)" }}
+        >
+          {subtitle}
+        </p>
+      ) : null}
       {description ? (
         <p
           className="mt-4 text-base leading-relaxed"

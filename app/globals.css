@@ -127,6 +127,7 @@ body::after {
 .glass-hover:hover {
   border-color: var(--accent-border);
   box-shadow: 0 8px 32px var(--accent-soft);
+  transform: translateY(-2px);
 }
 
 .gradient-text {

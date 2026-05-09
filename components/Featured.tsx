@@ -25,7 +25,8 @@ export function Featured({
       <div className="mx-auto max-w-6xl">
         <SectionTitle
           eyebrow={eyebrow}
-          title={`${project.title} — ${project.blurb}`}
+          title={project.title}
+          subtitle={project.blurb}
           description={project.description}
         />
 
@@ -37,7 +38,7 @@ export function Featured({
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {project.cover ? (
-            <div className="relative aspect-[16/9] w-full overflow-hidden border-b" style={{ borderColor: "var(--border-soft)" }}>
+            <div className="relative aspect-video w-full overflow-hidden border-b" style={{ borderColor: "var(--border-soft)" }}>
               <Image
                 src={project.cover}
                 alt={coverAlt ?? `${project.title} screenshot`}
@@ -60,7 +61,7 @@ export function Featured({
               <ul className="space-y-3 text-sm leading-relaxed" style={{ color: "var(--text-soft)" }}>
                 {project.highlights?.map((h, i) => (
                   <li key={i} className="flex gap-3">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-fuchsia-400 to-purple-400" />
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-linear-to-r from-fuchsia-400 to-purple-400" />
                     <span>{h}</span>
                   </li>
                 ))}

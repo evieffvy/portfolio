@@ -56,11 +56,18 @@ export function About() {
               >
                 Currently
               </p>
-              <ul className="space-y-2 text-sm" style={{ color: "var(--text-soft)" }}>
-                <li>📚 Final year Computer Engineering @ ABAC</li>
-                <li>🛡 Building NYXUS — security-first RAG chatbot</li>
-                <li>🌏 Based in Bangkok, Thailand</li>
-                <li>🎯 Open to AI / Security roles</li>
+              <ul className="space-y-2.5 text-sm" style={{ color: "var(--text-soft)" }}>
+                {[
+                  "Final year Computer Engineering @ ABAC",
+                  "Building NYXUS — security-first RAG chatbot",
+                  "Based in Bangkok, Thailand",
+                  "Open to AI / Security roles",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2.5">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-linear-to-r from-fuchsia-400 to-purple-400" />
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
           </motion.aside>

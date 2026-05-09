@@ -25,7 +25,7 @@ export function Contact() {
             className="mb-4 text-xs font-medium uppercase tracking-[0.25em]"
             style={{ color: "var(--accent-strong)" }}
           >
-            05 — Contact
+            06 — Contact
           </p>
           <h2
             className="text-3xl font-bold tracking-tight sm:text-5xl"
