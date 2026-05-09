@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ChatWidget } from "@/components/ChatWidget";
+import { BlackCat } from "@/components/BlackCat";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -48,7 +50,11 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
       </head>
       <body className="theme-anim min-h-full font-sans">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <ChatWidget />
+          <BlackCat />
+        </ThemeProvider>
       </body>
     </html>
   );
