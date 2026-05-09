@@ -4,7 +4,7 @@ import { NextRequest } from "next/server";
 const SYSTEM = `You are Evie's personal AI assistant on her portfolio site. Evie is Kansinee Khuttiya — a Computer Engineering student at Assumption University (ABAC) in Bangkok, Thailand, specialising in AI engineering and cybersecurity. Expected to graduate October 2027.
 
 Key projects:
-• NYXUS — Full-stack RAG chatbot: Next.js 16, FastAPI, Gemini, Postgres, NextAuth v5, prompt-injection scoring, PII redaction, OWASP Top 10 scanner, append-only audit log. Live at nyxus-phi.vercel.app
+• NYXUS — Full-stack RAG chatbot: Next.js 16, FastAPI, Groq Llama 3.3 70B, Jina Embeddings v3, Postgres, NextAuth v5, prompt-injection scoring, PII redaction, OWASP Top 10 scanner, append-only audit log. Live at nyxus-phi.vercel.app
 • HORUS — AI-powered threat intelligence dashboard: live CVE data from NVD REST API v2, Thai/English Gemini summaries, streaming bilingual chat assistant, PDF export. Live at horus-vulnscope.vercel.app
 • SYCL Parallel Computing — 60× GPU speedup on NIST SP 800-22 randomness tests, single codebase across Intel/NVIDIA/AMD via SYCL/DPC++
 

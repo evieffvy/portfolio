@@ -37,11 +37,11 @@ export const featured: Project = {
   title: "NYXUS",
   blurb: "Full-stack RAG chatbot with security-first design",
   description:
-    "An end-to-end Retrieval-Augmented Generation chatbot built to demonstrate production-grade engineering across full-stack, AI, and applied security. Users can chat with a Gemini-powered assistant grounded in PDF documents they upload, scan code for OWASP Top 10 vulnerabilities, and review every privileged action through an audit log.",
+    "An end-to-end Retrieval-Augmented Generation chatbot built to demonstrate production-grade engineering across full-stack, AI, and applied security. Users can chat with a Groq-powered assistant grounded in PDF documents they upload, scan code for OWASP Top 10 vulnerabilities, and review every privileged action through an audit log.",
   highlights: [
     "PII redaction across 10+ pattern classes including Luhn-validated credit cards, before any user input reaches the LLM",
     "Weighted prompt-injection scoring across 7 signal classes (instruction override, role hijack, system-prompt leak, jailbreaks, delimiter smuggling)",
-    "OWASP Top 10 code scanner using structured-output Gemini prompts with severity-rated findings and fix recommendations",
+    "OWASP Top 10 code scanner using structured-output Groq prompts with severity-rated findings and fix recommendations",
     "Append-only audit log of every privileged action: auth, conversation CRUD, document upload, chat send, security scan",
     "Hardened HTTP headers, slowapi rate limiting, CORS allowlists, retry/backoff for transient LLM errors",
     "GitHub Actions CI running pytest, tsc, and prisma validate on every push",
@@ -55,7 +55,8 @@ export const featured: Project = {
     "Postgres",
     "Prisma",
     "NextAuth v5",
-    "Google Gemini",
+    "Groq",
+    "Jina AI",
     "Tailwind 4",
     "Vercel",
     "Render",

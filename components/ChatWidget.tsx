@@ -134,7 +134,7 @@ export function ChatWidget() {
               </div>
               <div>
                 <p className="text-sm font-semibold" style={{ color: "var(--text)" }}>Evie&apos;s AI</p>
-                <p className="text-[11px]" style={{ color: "var(--text-faint)" }}>Powered by Gemini</p>
+                <p className="text-[11px]" style={{ color: "var(--text-faint)" }}>Powered by Groq</p>
               </div>
               <div className="ml-auto flex h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.8)]" />
             </div>
