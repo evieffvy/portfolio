@@ -51,7 +51,7 @@ export function Hero() {
           </div>
 
           <h1
-            className="text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+            className="font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
             style={{ color: "var(--text)" }}
           >
             Hi, I&apos;m{" "}
@@ -141,7 +141,7 @@ export function Hero() {
           style={{ color: "var(--text-faint)" }}
         >
           Scroll
-          <span className="mx-auto mt-3 block h-8 w-px bg-gradient-to-b from-fuchsia-500/40 to-transparent" />
+          <span className="mx-auto mt-3 block h-8 w-px bg-linear-to-b from-fuchsia-500/40 to-transparent" />
         </motion.div>
       </div>
     </section>

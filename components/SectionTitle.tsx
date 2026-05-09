@@ -27,7 +27,7 @@ export function SectionTitle({ eyebrow, title, subtitle, description }: Props) {
         </p>
       ) : null}
       <h2
-        className="text-3xl font-bold tracking-tight sm:text-4xl"
+        className="font-display text-3xl font-bold tracking-tight sm:text-4xl"
         style={{ color: "var(--text)" }}
       >
         {title}
