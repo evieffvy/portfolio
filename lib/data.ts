@@ -100,15 +100,16 @@ export const projects: Project[] = [
   {
     slug: "sycl",
     title: "SYCL Parallel Computing",
-    blurb: "60× GPU speedup on NIST SP 800-22 randomness tests — single codebase, any hardware",
+    blurb: "Up to 2,194× GPU speedup on NIST SP 800-22 randomness tests — single codebase, any hardware",
     description:
-      "Reimplements the NIST SP 800-22 Monobit and Block Frequency tests as SYCL parallel kernels. A single portable codebase runs on Intel CPU, Intel GPU, NVIDIA GPU, and AMD GPU via SYCL/DPC++ — no CUDA lock-in. Achieves 60× peak GPU speedup over the NIST STS serial baseline at 1 GB input with 32 Gbit/s sustained throughput; P-values match the reference within 1×10⁻⁵.",
+      "Reimplements the NIST SP 800-22 Monobit and Block Frequency tests as SYCL parallel kernels. A single portable codebase runs on Intel CPU, Intel GPU, NVIDIA GPU, and AMD GPU via SYCL/DPC++ — no CUDA lock-in. On an NVIDIA RTX 4080 SUPER, achieves up to 1,288× (Monobit) and 2,194× (Block Frequency) speedup over the NIST STS 2.1.2 serial reference at 100 M bits, with 160.5 Gbit/s peak sustained throughput; P-values match the reference to at least six decimal places.",
     highlights: [
-      "60× peak GPU speedup over NIST STS 2.1.2 serial reference at 1 GB input; 32 Gbit/s sustained GPU throughput",
+      "Up to 2,194× Block Frequency and 1,288× Monobit GPU speedup over NIST STS 2.1.2 serial reference at 100 M bits on RTX 4080 SUPER",
+      "160.5 Gbit/s peak sustained Block Frequency throughput; 94.3 Gbit/s Monobit throughput on a single GPU",
       "Monobit kernel: two-phase parallel reduction with work-group shared memory and sycl::atomic_ref for global accumulation",
       "Block Frequency kernel: two-pass data-parallel design with sycl::reduction accumulating chi-squared in double precision",
-      "Cross-architecture portability: Intel CPU, Intel GPU, NVIDIA GPU, and AMD GPU from one SYCL/DPC++ source",
-      "P-values verified against NIST STS 2.1.2 within floating-point tolerance (<1×10⁻⁵) across all test vectors",
+      "Cross-architecture portability: Intel CPU, Intel GPU, NVIDIA GPU, and AMD GPU from one SYCL/DPC++ source — no CUDA lock-in",
+      "P-values verified against NIST STS 2.1.2 to at least six decimal places across every tested configuration",
     ],
     tech: ["C++17", "SYCL / DPC++", "Intel oneAPI", "CMake", "Linux"],
     repo: "https://github.com/evieffvy/sycl_project",
